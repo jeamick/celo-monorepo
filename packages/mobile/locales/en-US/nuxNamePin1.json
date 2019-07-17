@@ -13,7 +13,7 @@
     "0":
       "Enter your invitation code. If you do not have one, ask someone in the Celo Community to invite you. You can paste the entire invite message as your invite code.",
     "1":
-      "By joining this network, you agree to allow us to collect anonymized information about how you use the app. Additionally, if you verify your phone number, an obfuscated opy of it will be stored on the Celo Network. Learn more at ",
+      "By joining this network, you agree to allow us to collect anonymized information about how you use the app. Additionally, if you verify your phone number, an obfuscated copy of it will be stored on the Celo Network. Learn more at ",
     "2": "celo.org/terms",
     "askForInvite": {
       "0": "Don't have a code? ",

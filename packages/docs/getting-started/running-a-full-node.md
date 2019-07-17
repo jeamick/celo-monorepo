@@ -26,7 +26,10 @@ When you see text in angle brackets &lt;&gt;, replace them and the text inside w
 **Step 1: Set up a local directory and switch into it**  
 The purpose of this is to store any of the data and files needed to run your node. This directory can be named anything you'd like, but here's a default you can use. The commands below create a directory and then navigate into it. The rest of the steps assume you are running the commands from inside this directory.
 
-`$ mkdir celo-data-dir $ cd celo-data-dir`
+```
+$ mkdir celo-data-dir
+$ cd celo-data-dir
+```
 
 **Step 2:** **Create an account and get its address**  
 In this step, you'll create an account on the network. If you've already done this and have an account address, you can skip this and move on to step 3.
