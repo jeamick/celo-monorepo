@@ -56,6 +56,10 @@ subprojects {
                     && !details.requested.name.contains('multidex') ) {
                 details.useVersion rootProject.ext.supportLibVersion
             }
+            if (details.requested.group == 'com.segment.analytics.android.integrations'
+                    && details.requested.name == 'firebase' ) {
+                details.useVersion "1.2.0"
+            }
         }
     }
 
