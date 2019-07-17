@@ -18,7 +18,7 @@
     "2": "celo.org",
     "askForInvite": {
       "1":
-        "Solicite una invitación a alguien con billetera Celo o regístrese para obtener una cuenta de testnet en",
+        "Solicite una invitación a alguien con Monedero Celo o regístrese para obtener una cuenta de testnet en",
       "2": "celo.org/build/wallet"
     }
   },
@@ -30,17 +30,17 @@
   "redeemingInvite": "Confirmando invitación",
   "redeemingDescription":
     "Por favor espere. Esto puede tomar algunos miniutos. Por favor dejá la aplicación abierta.",
-  "haveWallet": "¿Ya tiene una billetera Celo? ",
+  "haveWallet": "¿Ya tiene un Monedero Celo? ",
   "importIt": "Importar",
   "invalidInvite": "Código de invitación inválido",
   "cancel": "Cancelar",
   "important": "Importante",
   "createPin": {
     "title": "Crear un código PIN de 6 dígitos",
-    "intro": "Cree un PIN para proteger su billetera Celo.",
+    "intro": "Cree un PIN para proteger su Monedero Celo.",
     "why": "En ciertos casos, necesitará este PIN para enviar Celo Dólares a sus amigos.",
     "warn":
-      "escriba su código PIN de 6 dígitos en un papel y guárdelo en algún sitio seguro. Se lo solicitaremos más tarde para acceder a su billetera.",
+      "escriba su código PIN de 6 dígitos en un papel y guárdelo en algún sitio seguro. Se lo solicitaremos más tarde para acceder a su monedero.",
     "yourPin": "Su PIN"
   },
   "verifyPin": {
@@ -56,7 +56,7 @@
     "intro":
       "Necesitaremos que ingreses el código de bloqueo de pantalla de tu dispositivo o tu huella, si el mismo lo soporta.",
     "why":
-      "Necesitamos este nivel de protección adicional para asegurar que el contenido de tu billetera se encuentra a salvo."
+      "Necesitamos este nivel de protección adicional para asegurar que el contenido de tu monedero se encuentra a salvo."
   },
   "goToSystemSecuritySettingsActionLabel": "Vaya a seguridad",
   "enableSystemScreenLockFailedMessage": "Error al intentar habilitar el bloqueo de pantalla",
