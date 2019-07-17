@@ -8,6 +8,10 @@ Just as anyone in a democracy can create their own political party, or seek to g
 
 While other Validator Groups will exist on the Alfajores Testnet, the fastest way to get up and running with a validator will be to register a Validator Group, register a Validator, and add that Validator to your Validator Group. The addresses used to register Validator Groups and Validators must be unique, which will require that you create two accounts in the step-by-step guide below.
 
+{% hint style="info" %}
+If you are starting up a validator, please consider leaving it running for a few weeks to support the network.
+{% endhint %}
+
 ### **Prerequisites**
 
 - **You have Docker installed.**
@@ -22,9 +26,9 @@ While other Validator Groups will exist on the Alfajores Testnet, the fastest wa
 
   Some users have reported issues installing the Celo CLI with python 3.x
 
--- **You are using the latest Node 10.x LTS**
+- **You are using the latest Node 10.x LTS**
 
-Some users have reported issues using the most recent version of node. Use the LTS for greater reliability.
+  Some users have reported issues using the most recent version of node. Use the LTS for greater reliability.
 
 ### **Create accounts**
 

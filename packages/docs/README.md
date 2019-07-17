@@ -89,7 +89,7 @@ Learn more about Celo:
 Browse the code, raise an issue, or contribute a PR:
 
 - [Monorepo GitHub Page](https://github.com/celo-org/celo-monorepo)
-- [Celo Client GitHub Page](https://github.com/celo-org/celo-client)
+- [Celo Client GitHub Page](https://github.com/celo-org/celo-blockchain)
 - [Contributing Guide](community/contributing.md)
 - [Celo Build Page](https://celo.org/build)
 
