@@ -27,8 +27,6 @@ files=(
   ".env.mnemonic.alfajores"
   ".env.mnemonic.alfajoresstaging"
   ".env.mnemonic.appintegration"
-  ".env.mnemonic.argentinaproduction"
-  ".env.mnemonic.argentinastaging"
   ".env.mnemonic.integration"
   ".env.mnemonic.integrationtesting"
 )
