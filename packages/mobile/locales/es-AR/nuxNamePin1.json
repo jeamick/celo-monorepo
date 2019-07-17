@@ -17,8 +17,9 @@
       "Al aceptar la solicitud, usted acepta permitirnos recopilar información que nos ayude a mejorar la experiencia. Obtenga más información en ",
     "2": "celo.org",
     "askForInvite": {
+      "0": "¿No tiene un código? ",
       "1":
-        "Solicite una invitación a alguien con Celo Wallet o regístrese para obtener una cuenta de testnet en",
+        "Solicite una invitación a alguien con Celo Wallet o regístrese para obtener una cuenta de testnet en ",
       "2": "celo.org/build/wallet"
     }
   },
