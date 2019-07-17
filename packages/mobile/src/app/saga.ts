@@ -1,4 +1,3 @@
-import { isE164Number } from '@celo/utils/src/phoneNumbers'
 import DeviceInfo from 'react-native-device-info'
 import { REHYDRATE } from 'redux-persist/es/constants'
 import { all, call, put, select, spawn, take } from 'redux-saga/effects'
@@ -24,6 +23,8 @@ interface PersistedStateProps {
   e164Number: string
   numberVerified: boolean
   pincodeSet: boolean
+  redeemComplete: boolean
+  startedVerification: boolean
 }
 
 const mapStateToProps = (state: PersistedRootState): PersistedStateProps | null => {
@@ -36,6 +37,8 @@ const mapStateToProps = (state: PersistedRootState): PersistedStateProps | null 
     e164Number: state.account.e164PhoneNumber,
     numberVerified: state.app.numberVerified,
     pincodeSet: state.account.pincodeSet,
+    redeemComplete: state.invite.redeemComplete,
+    startedVerification: state.identity.startedVerification,
   }
 }
 
@@ -58,7 +61,15 @@ export function* navigateToProperScreen() {
     return
   }
 
-  const { language, inviteCodeEntered, e164Number, numberVerified, pincodeSet } = mappedState
+  const {
+    language,
+    inviteCodeEntered,
+    e164Number,
+    numberVerified,
+    pincodeSet,
+    redeemComplete,
+    startedVerification,
+  } = mappedState
 
   if (language) {
     yield put(setLanguage(language))
@@ -70,11 +81,13 @@ export function* navigateToProperScreen() {
     navigate(Stacks.NuxStack)
   } else if (!inSync) {
     navigate(Screens.SetClock)
+  } else if (!e164Number) {
+    navigate(Screens.JoinCelo)
   } else if (!pincodeSet) {
     navigate(Screens.Pincode)
   } else if (inviteCodeEntered === false) {
-    navigate(Screens.RedeemInvite)
-  } else if (!isE164Number(e164Number)) {
+    navigate(Screens.EnterInviteCode)
+  } else if (redeemComplete && startedVerification === false) {
     navigate(Screens.VerifyEducation)
   } else if (numberVerified === false) {
     navigate(Screens.VerifyVerifying)

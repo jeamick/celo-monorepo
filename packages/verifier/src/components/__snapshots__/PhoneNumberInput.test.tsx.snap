@@ -18,6 +18,7 @@ exports[`PhoneNumberInput when defaultCountry renders defaults 1`] = `
           "borderColor": "#D1D5D8",
           "borderRadius": 3,
           "borderWidth": 1,
+          "height": 60,
         },
         Object {
           "alignItems": "center",
@@ -63,6 +64,7 @@ exports[`PhoneNumberInput when defaultCountry renders defaults 1`] = `
           "borderColor": "#D1D5D8",
           "borderRadius": 3,
           "borderWidth": 1,
+          "height": 60,
         },
       ]
     }
@@ -113,6 +115,7 @@ exports[`PhoneNumberInput when defaultCountry renders defaults 1`] = `
         onChangeText={[Function]}
         onFocus={[Function]}
         placeholder=""
+        placeholderTextColor="#D1D5D8"
         rejectResponderTermination={true}
         secureTextEntry={false}
         style={
@@ -175,8 +178,10 @@ exports[`PhoneNumberInput when no defaultCountry renders AutoComplete 1`] = `
               "borderColor": "#D1D5D8",
               "borderRadius": 3,
               "borderWidth": 1,
+              "height": 60,
             },
             Object {
+              "marginTop": 1,
               "padding": 3,
             },
           ],
@@ -212,6 +217,7 @@ exports[`PhoneNumberInput when no defaultCountry renders AutoComplete 1`] = `
           onChangeText={[Function]}
           onFocus={[Function]}
           placeholder=""
+          placeholderTextColor="#D1D5D8"
           rejectResponderTermination={true}
           secureTextEntry={false}
           style={
@@ -262,6 +268,7 @@ exports[`PhoneNumberInput when no defaultCountry renders AutoComplete 1`] = `
           "borderColor": "#D1D5D8",
           "borderRadius": 3,
           "borderWidth": 1,
+          "height": 60,
         },
       ]
     }
@@ -312,6 +319,7 @@ exports[`PhoneNumberInput when no defaultCountry renders AutoComplete 1`] = `
         onChangeText={[Function]}
         onFocus={[Function]}
         placeholder=""
+        placeholderTextColor="#D1D5D8"
         rejectResponderTermination={true}
         secureTextEntry={false}
         style={

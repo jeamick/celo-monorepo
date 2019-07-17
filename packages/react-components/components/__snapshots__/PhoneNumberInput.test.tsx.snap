@@ -18,6 +18,7 @@ exports[`PhoneNumberInput renders correctly with minimum props 1`] = `
           "borderColor": "#D1D5D8",
           "borderRadius": 3,
           "borderWidth": 1,
+          "height": 60,
         },
         Object {
           "alignItems": "center",
@@ -61,6 +62,7 @@ exports[`PhoneNumberInput renders correctly with minimum props 1`] = `
           "borderColor": "#D1D5D8",
           "borderRadius": 3,
           "borderWidth": 1,
+          "height": 60,
         },
       ]
     }
@@ -111,6 +113,7 @@ exports[`PhoneNumberInput renders correctly with minimum props 1`] = `
         onChangeText={[Function]}
         onFocus={[Function]}
         placeholder=""
+        placeholderTextColor="#D1D5D8"
         rejectResponderTermination={true}
         secureTextEntry={false}
         style={

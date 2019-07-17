@@ -10,6 +10,7 @@ export enum Actions {
   SEND_INVITE_FAILURE = 'INVITE/SEND_INVITE_FAILURE',
   REDEEM_INVITE = 'INVITE/REDEEM_INVITE',
   STORE_REDEEMED_INVITE_CODE = 'STORE_REDEEMED_INVITE_CODE',
+  REDEEM_COMPLETE = 'INVITE/REDEEM_COMPLETE',
 }
 
 export interface Invitees {
@@ -46,12 +47,15 @@ export interface RedeemInviteAction {
   name: string
 }
 
+export interface RedeemCompleteAction {
+  type: Actions.REDEEM_COMPLETE
+}
+
 export type ActionTypes =
   | StoreInviteeDataAction
   | SendInviteAction
-  | SendInviteSuccessAction
-  | SendInviteFailureAction
   | RedeemInviteAction
+  | RedeemCompleteAction
 
 export enum InviteBy {
   WhatsApp = 'WhatsApp',
@@ -92,4 +96,8 @@ export const redeemInvite = (inviteCode: string, name: string): RedeemInviteActi
   type: Actions.REDEEM_INVITE,
   inviteCode,
   name,
+})
+
+export const redeemComplete = () => ({
+  type: Actions.REDEEM_COMPLETE,
 })

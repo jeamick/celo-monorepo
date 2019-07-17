@@ -10,26 +10,43 @@
     "Verifique su número de teléfono para conectarse con otros usuarios y recibir dinero",
   "syncNetwork": "Sincronizando con la red",
   "welcomeCelo": "Le damos la bienvenida a Celo",
-  "inviteText": {
+  "chooseCountryCode": "Elegir código de país",
+  "joinText": {
     "0":
-      "Ingrese su código de invitación. Si no tiene uno, pídale a alguien de la comunidad de Celo que lo invite. Puede pegar el mensaje de invitación completo como su código de invitación.",
+      "Bienvenido a Celo Wallet, una billetera digital que le permite enviar, recibir y guardar valor fácilmente",
     "1":
-      "Al aceptar la solicitud, usted acepta permitirnos recopilar información que nos ayude a mejorar la experiencia. Obtenga más información en ",
-    "2": "celo.org",
+      "Al unirse a esta red, nos da permiso para recopilar información anónima sobre cómo utiliza la aplicación. Además, al verificar su número de teléfono se almacena una copia enmascarada en la red de Celo. Obtenga más información en",
+    "2": "celo.org/terms"
+  },
+  "phoneNumber": "000 000 0000",
+  "inviteCodeText": {
+    "title": "Introduzca el código de invitación",
+    "copyInvite": {
+      "0": "Copiar invitación",
+      "1": "de la aplicación Messages y vuelve"
+    },
+    "hint": {
+      "0": "Sugerencia",
+      "1": "Copiar todo el mensaje SMS"
+    },
+    "validating": {
+      "0": "Genial!",
+      "1": "Validación del código de invitación copiado"
+    },
+    "inviteAccepted": "🎉 Invitación aceptada!",
     "askForInvite": {
-      "1":
+      "0":
         "Solicite una invitación a alguien con Celo Wallet o regístrese para obtener una cuenta de testnet en",
-      "2": "celo.org/build/wallet"
+      "1": "celo.org/build/wallet"
     }
   },
+  "openMessages": "Abrir mensajes",
+  "pasteInviteCode": "Pegar Invitar Código!",
   "enterFullName": "Ingrese su nombre y apellido",
   "fullName": "Nombre completo",
   "InvitationCode": "Código de invitación",
   "optIn": "Inscribirse",
   "submitting": "Enviando ...",
-  "redeemingInvite": "Confirmando invitación",
-  "redeemingDescription":
-    "Por favor espere. Esto puede tomar algunos miniutos. Por favor dejá la aplicación abierta.",
   "haveWallet": "¿Ya tiene una billetera de Celo? ",
   "importIt": "Importar",
   "invalidInvite": "Código de invitación inválido",
@@ -63,5 +80,13 @@
   "initKeystoreFailureMessage": "Error al recuperar la clave",
   "pinLostForeverMessage": "Eliminaste el bloqueo de pantalla, el PIN se perdió",
   "enableScreenLockMessage":
-    "Por favor habilitá el bloqueo de pantalla para usar Celo. Si deshabilitás el bloqueo de pantalla en el futuro, vas a necesitar tu clave de respaldo para acceder a tu cuenta"
+    "Por favor habilitá el bloqueo de pantalla para usar Celo. Si deshabilitás el bloqueo de pantalla en el futuro, vas a necesitar tu clave de respaldo para acceder a tu cuenta",
+  "importContactsPermission": {
+    "title": "Importar contactos",
+    "0": "Celo es mejor con los demás.",
+    "1":
+      "Importar tus contactos te permite enviar y solicitar pagos fácilmente a tu comunidad y ver quién ya está usando Celo",
+    "enable": "Habilitar acceso a contactos"
+  },
+  "skip": "Skip"
 }
