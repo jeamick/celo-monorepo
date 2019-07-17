@@ -1,43 +1,71 @@
 # How to test changes to this file
-# docker build -f dockerfile/cli/Dockerfile.cli -t gcr.io/celo-testnet/mit-cli:$USER .
+# docker build -f dockerfiles/cli/Dockerfile.cli -t gcr.io/celo-testnet/celocli:$USER .
 # To locally run that image
-# docker rm cli_container; docker run --name cli_container -p 8545:8545 gcr.io/celo-testnet/mit-cli:$USER -v /
+# docker rm cli_container; docker run --name cli_container -p 8545:8545 gcr.io/celo-testnet/celocli:$USER -v /
 # and connect to it with
 # docker exec -t -i cli_container /bin/sh
 # Run commands against it using
-# docker exec -it cli_container /celo-cli <sub-command>
+# docker exec -it cli_container /celocli <sub-command>
 # If you need to restart it
 # docker start -ai cli_container
 
-ARG geth_tag=da47108811c6b796ebb2bcc141310a6e0ee20f6d
+ARG geth_tag=master
 ARG geth_project=celo-testnet
 
-FROM node:10-alpine as node
+FROM us.gcr.io/$geth_project/geth:$geth_tag as geth
 
-RUN apk update && apk add yarn python g++ make git curl && rm -rf /var/cache/apk/*
+ARG celo_env
+RUN echo "Env is ${celo_env}"
+RUN apk add curl
+RUN mkdir /celo
+RUN curl --fail https://www.googleapis.com/storage/v1/b/genesis_blocks/o/${celo_env}?alt=media > /celo/genesis.json
+RUN curl --fail https://www.googleapis.com/storage/v1/b/static_nodes/o/${celo_env}?alt=media > /celo/static-nodes.json
+RUN ls /usr/local/bin/geth
 
-WORKDIR /cli
+FROM node:8 as node
 
-COPY packages/cli /cli
-COPY packages/contractkit /sdk
-RUN yarn
-RUN yarn run tsc --noEmit false
-RUN yarn run build-pkg
+ARG celo_env
+ARG network_id=44781
+ARG sync_mode=ultralight
 
-FROM gcr.io/$geth_project/geth:$geth_tag
 
-RUN apk update && apk add libgcc libstdc++ && rm -rf /var/cache/apk/*
+RUN echo "geth_tag is ${geth_tag}"
+RUN echo "Env is ${celo_env}"
 
-COPY --from=node /cli/celo-cli /celo-cli
+RUN apt-get update
+RUN apt-get install lsb-release -y
+# Without this, geth will fail with a confusing "No such file or directory" error. 
+RUN apt-get install musl-dev -y
 
-COPY --from=node /cli/node_modules/sha3/build/Release/sha3.node /sha3.node
-COPY --from=node /cli/node_modules/scrypt/build/Release/scrypt.node /scrypt.node
-COPY --from=node /cli/node_modules/websocket/build/Release/bufferutil.node /bufferutil.node
-COPY --from=node /cli/node_modules/websocket/build/Release/validation.node /validation.node
-# Destination file paths are hard-coded in https://github.com/celo-org/celo-monorepo/blob/master/packages/cli/src/consts.ts
-# I am trying to keep the filepaths same, so that, one can use the same code inside the Docker container (release mode) and outside (developer mode)
-COPY packages/celotool/src/mitiapproduction_static-nodes.json /root/celo/celo-monorepo/packages/celotool/src/mitiapproduction_static-nodes.json
-COPY packages/celotool/src/genesis_poa_from_mobile.json /root/celo/celo-monorepo/packages/celotool/src/genesis_poa_from_mobile.json
+WORKDIR /celo-monorepo/
+
+COPY lerna.json /celo-monorepo/lerna.json
+COPY scripts /celo-monorepo/scripts
+COPY package.json /celo-monorepo/package.json
+COPY yarn.lock /celo-monorepo/yarn.lock
+COPY .prettierrc.js /celo-monorepo/.prettierrc.js
+COPY packages/utils /celo-monorepo/packages/utils
+COPY packages/cli /celo-monorepo/packages/cli
+COPY packages/contractkit /celo-monorepo/packages/contractkit
+COPY packages/typescript /celo-monorepo/packages/typescript
+
+RUN echo "Dir is ${PWD}"
+RUN echo "env is ${celo_env}"
+
+RUN yarn install || yarn install
+
+RUN yarn --cwd=/celo-monorepo/packages/cli run setup:environment ${celo_env}
+RUN yarn --cwd=/celo-monorepo/packages/cli build
+RUN ls /celo-monorepo/packages/cli/bin/run
+RUN ln -s /celo-monorepo/packages/cli/bin/run /celocli
+
+COPY --from=geth /usr/local/bin/geth /usr/local/bin/geth
+RUN mkdir /celo
+COPY --from=geth /celo/genesis.json /celo
+COPY --from=geth /celo/static-nodes.json /celo
+COPY packages/cli/start_geth_docker.sh /celo/start_geth_docker.sh
+RUN chmod ugo+x /celo/start_geth_docker.sh
+RUN ls /usr/local/bin/geth
 
 EXPOSE 8545 8546 30303 30303/udp
-ENTRYPOINT ["/celo-cli", "core-run"]
+ENTRYPOINT ["/celo/start_geth_docker.sh", "/usr/local/bin/geth", "alfajores", "ultralight", "44781", "/root/.celo", "/celo/genesis.json", "/celo/static-nodes.json"]
