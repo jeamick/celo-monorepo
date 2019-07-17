@@ -1,13 +1,24 @@
+# Docker image for this file is hosted at
+# us.gcr.io/celo-testnet/celocli:master
+#
 # How to test changes to this file
-# docker build -f dockerfiles/cli/Dockerfile.cli -t gcr.io/celo-testnet/celocli:$USER .
+# docker build -f dockerfiles/cli/Dockerfile.cli -t gcr.io/celo-testnet/celocli:$USER . --build-arg celo_env=alfajores
 # To locally run that image
 # docker rm cli_container; docker run --name cli_container -p 8545:8545 gcr.io/celo-testnet/celocli:$USER -v /
 # and connect to it with
 # docker exec -t -i cli_container /bin/sh
+#
 # Run commands against it using
 # docker exec -it cli_container /celocli <sub-command>
-# If you need to restart it
+# For example,
+# docker exec -it cli_container /celocli account:balance 0x456f41406B32c45D59E539e4BBA3D7898c3584dA
+# docker exec -it cli_container /celocli account:balance 0xa0Af2E71cECc248f4a7fD606F203467B500Dd53B
+#
+# To restart
 # docker start -ai cli_container
+#
+# To kill
+# docker kill cli_container
 
 ARG geth_tag=master
 ARG geth_project=celo-testnet
@@ -63,9 +74,9 @@ COPY --from=geth /usr/local/bin/geth /usr/local/bin/geth
 RUN mkdir /celo
 COPY --from=geth /celo/genesis.json /celo
 COPY --from=geth /celo/static-nodes.json /celo
-COPY packages/cli/start_geth_docker.sh /celo/start_geth_docker.sh
-RUN chmod ugo+x /celo/start_geth_docker.sh
+COPY packages/cli/start_geth.sh /celo/start_geth.sh
+RUN chmod ugo+x /celo/start_geth.sh
 RUN ls /usr/local/bin/geth
 
 EXPOSE 8545 8546 30303 30303/udp
-ENTRYPOINT ["/celo/start_geth_docker.sh", "/usr/local/bin/geth", "alfajores", "ultralight", "44781", "/root/.celo", "/celo/genesis.json", "/celo/static-nodes.json"]
+ENTRYPOINT ["/celo/start_geth.sh", "/usr/local/bin/geth", "alfajores", "ultralight", "44781", "/root/.celo", "/celo/genesis.json", "/celo/static-nodes.json"]
