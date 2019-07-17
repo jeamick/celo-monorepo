@@ -18,13 +18,9 @@ If you are starting up a validator, please consider leaving it running for a few
 
   If you don’t have it already, follow the instructions here: [Get Started with Docker](https://www.docker.com/get-started). It will involve creating or signing in with a Docker account, downloading a desktop app, and then launching the app to be able to use the Docker CLI. If you are running on a Linux server, follow the instructions for your distro [here](https://docs.docker.com/install/#server). You may be required to run Docker with sudo depending on your installation environment.
 
-- **You have celo-cli installed.**
+- **You have celocli installed.**
 
   See [Command Line Interface \(CLI\) ](../command-line-interface/introduction.md)for instructions on how to get set up.
-
-- **Your system python version is 2.7**
-
-  Some users have reported issues installing the Celo CLI with python 3.x
 
 - **You are using the latest Node 10.x LTS**
 
@@ -49,7 +45,7 @@ It will prompt you for a passphrase, ask you to confirm it, and then will output
 
 Let's save these addresses to environment variables, so that you can reference it later:
 
-```
+``` 
 $ export CELO_VALIDATOR_GROUP_ADDRESS=<YOUR-VALIDATOR-GROUP-ADDRESS>
 $ export CELO_VALIDATOR_ADDRESS=<YOUR-VALIDATOR-ADDRESS>
 ```
@@ -113,9 +109,7 @@ Register your validator group:
 
 Register your validator:
 
-```
-$ celocli validator:register --id <VALIDATOR_ID_OF_YOUR_CHOICE> --name <VALIDATOR_NAME_OF_YOUR_CHOICE> --url <VALIDATOR_URL_OF_YOUR_CHOICE> --from $CELO_VALIDATOR_ADDRESS --noticePeriod 5184000 --publicKey 0x`openssl rand -hex 64`
-```
+`` $ celocli validator:register --id <VALIDATOR_ID_OF_YOUR_CHOICE> --name <VALIDATOR_NAME_OF_YOUR_CHOICE> --url <VALIDATOR_URL_OF_YOUR_CHOICE> --from $CELO_VALIDATOR_ADDRESS --noticePeriod 5184000 --publicKey 0x`openssl rand -hex 64` ``
 
 {% hint style="info" %}
 **Roadmap**: Note that the “publicKey” field is currently ignored, and thus can be set to any 128 character hex value. This will change when the Celo protocol moves to BLS signatures for consensus.
@@ -131,7 +125,10 @@ Accept the affiliation:
 
 Use both accounts to vote for your validator group:
 
-`$ celocli validatorgroup:vote --from $CELO_VALIDATOR_ADDRESS --for $CELO_VALIDATOR_GROUP_ADDRESS $ celocli validatorgroup:vote --from $CELO_VALIDATOR_GROUP_ADDRESS --for $CELO_VALIDATOR_GROUP_ADDRESS`
+```
+$ celocli validatorgroup:vote --from $CELO_VALIDATOR_ADDRESS --for $CELO_VALIDATOR_GROUP_ADDRESS
+$ celocli validatorgroup:vote --from $CELO_VALIDATOR_GROUP_ADDRESS --for $CELO_VALIDATOR_GROUP_ADDRESS`
+```
 
 You’re all set! Note that elections are finalized at the end of each epoch, roughly once an hour in the Alfajores Testnet. After that hour, if you get elected, your node will start participating BFT consensus and validating blocks.
 
