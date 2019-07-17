@@ -2,7 +2,7 @@ FROM circleci/node:8
 MAINTAINER Connor McEwen <c@celo.org>
 
 RUN sudo apt-get update -y
-RUN sudo apt-get install lsb-release libudev-dev -y
+RUN sudo apt-get install lsb-release libudev-dev libusb-dev -y
 
 # Install Kubernetes, as per https://kubernetes.io/docs/tasks/tools/install-kubectl/
 RUN sudo apt-get install -y apt-transport-https && \

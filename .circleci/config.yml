@@ -6,7 +6,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/app
   docker:
-    - image: celohq/node:gcloud-libudev
+    - image: celohq/node8:gcloud-deps
 
 android-defaults: &android-defaults
   <<: *defaults
