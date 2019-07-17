@@ -38,7 +38,7 @@ export default class Deposit extends BaseCommand {
     if (!maxNoticePeriod.gte(noticePeriod)) {
       failWith(`require(noticePeriod <= maxNoticePeriod) => [${noticePeriod}, ${maxNoticePeriod}]`)
     }
-    if (!goldAmount.gt(Web3.utils.toBN(0))) {
+    if (!goldAmount.gt(0)) {
       failWith(`require(goldAmount > 0) => [${goldAmount}]`)
     }
 

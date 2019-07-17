@@ -24,7 +24,7 @@ $ npm install -g @celo/celocli
 $ celocli COMMAND
 running command...
 $ celocli (-v|--version|version)
-@celo/celocli/0.0.6 darwin-x64 node-v8.12.0
+@celo/celocli/0.0.6 darwin-x64 node-v8.15.0
 $ celocli --help [COMMAND]
 USAGE
   $ celocli COMMAND
