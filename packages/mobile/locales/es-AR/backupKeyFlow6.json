@@ -79,7 +79,7 @@
     "No pierda esta clave. Es de suma importancia que la mantenga en un lugar seguro, ya que es la única forma de desbloquear su billetera si pierde su celular.",
   "done": "Listo",
   "whatsappMessage":
-    "Importante: por favor mantenga esto privado. \n\nTe estoy enviando la frase de respaldo a mi Billetera de Celo: ",
+    "Importante: por favor mantenga esto privado. \n\nTe estoy enviando la frase de respaldo a mi billetera Celo: ",
   "backupPrompt":
     "Para la seguridad de sus fondos, su cuenta está congelada hasta que obtenga su clave de respaldo",
   "copyToClipboard": "Copiar al portapapeles",

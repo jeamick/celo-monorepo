@@ -5,12 +5,12 @@
   "fullName": "Nombre completo",
   "invitationCode": "Código de invitación",
   "submit": "Enviar",
-  "alreadyHaveWallet": "¿Ya tiene una billetera de Celo? Restáurela",
-  "restoreWallet": "Restaurar la billetera de Celo",
+  "alreadyHaveWallet": "¿Ya tiene una billetera Celo? Restáurela",
+  "restoreWallet": "Restaurar la billetera Celo",
   "restoreYourWallet": {
-    "title": "Restaurar su billetera de Celo",
+    "title": "Restaurar su billetera Celo",
     "userYourBackupKey":
-      "¿Ya tiene una billetera de Celo? Use su clave de respaldo segura para restaurar su billetera a este teléfono.",
+      "¿Ya tiene una billetera Celo? Use su clave de respaldo segura para restaurar su billetera a este teléfono.",
     "warning": "¡Cuidado! ",
     "restoreInPrivate": "Hágalo en privado"
   },
